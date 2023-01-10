@@ -1,8 +1,8 @@
-import request from './request'
+import { authRequest } from './request'
 
 export function login(email, password) {
     const data = {email, password}
-    return request({
+    return authRequest({
         url: '/users/login',
         method: 'post',
         data
@@ -11,7 +11,7 @@ export function login(email, password) {
 
 export function signUp(email, password) {
     const data = {email, password}
-    return request({
+    return authRequest({
         url: '/users/create',
         method: 'post',
         data

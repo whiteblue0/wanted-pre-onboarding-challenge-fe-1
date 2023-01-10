@@ -1,18 +1,22 @@
-import request from './request'
+import { apiRequest } from './request'
 
-export function login(email, password) {
-    const data = {email, password}
-    return request({
-        url: '/users/login',
-        method: 'post',
-        data
+export function list() {
+    return apiRequest({
+        url: '/todos',
+        method: 'get'
     })
 }
 
-export function signUp(email, password) {
-    const data = {email, password}
-    return request({
-        url: '/users/create',
+export function getTodoById(id) {
+    return apiRequest({
+        url: `/todos/:${id}`,
+        method: 'get'
+    })
+}
+
+export function createTodo(data) {
+    return apiRequest({
+        url: `/todos`,
         method: 'post',
         data
     })
